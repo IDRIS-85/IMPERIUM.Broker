@@ -46,6 +46,24 @@ animationScroll('.arrol-second-second', 'animation-scroll__arrol-second')
 animationScroll('.content-fourth__block__column', 'animation-scroll__content-second__blok-first--wrapper')
 
 
+const elements = document.querySelectorAll('.element');
+
+document.addEventListener('mousemove', function(e) {
+
+    const mouseX = e.clientX
+    const mouseY = e.clientY
+    
+    elements.forEach(element => {
+        const rect = element.getBoundingClientRect()
+        const centerX = rect.left + rect.width / 2
+        const centerY = rect.top + rect.height / 2
+        
+        const moveX = (centerX - mouseX) * 0.05
+        const moveY = (centerY - mouseY) * 0.05
+        
+        element.style.transform = `translate(${moveX}px, ${moveY}px)`
+    });
+});
 
 
 
